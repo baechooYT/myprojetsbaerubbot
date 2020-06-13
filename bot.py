@@ -1,5 +1,6 @@
 import discord
 import datetime
+import os
 
 client = discord.Client()
 
@@ -35,5 +36,5 @@ async def on_message(message):
         await message.channel.send("현재시각은 " + str(clockhour) + "시 " + str(clockminute) + "분 입니다!")
 
 
-
-client.run("NzE1MzcwNjMxNTI4NTc5MTUy.Xs-oRQ.Z3jf6bUy5buGxNBGnej5CF2mPkk")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
