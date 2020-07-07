@@ -49,7 +49,7 @@ async def on_message(message):
         for i in range(1,51):
             if sheet["A" + str(i)].value == "-":
                 sheet["A" + str(i)].value = learn[1]
-                sheet["B" + str(i)].value = learn[1]
+                sheet["B" + str(i)].value = learn[2]
                 await .message.channel.send("단어가 성공적으로 저장돼었습니다.")
                 break
         file.save("학습.xlsx")
