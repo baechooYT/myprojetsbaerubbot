@@ -1,6 +1,7 @@
 import discord
 import datetime
 import os
+import openpyxl
 
 client = discord.Client()
 
@@ -15,11 +16,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.startswith("배룹아"):
+        await message.channel.send("ㅇㅉㄺ")
     if message.content.startswith("배룹아 안녕"):
         await message.channel.send("ㅎㅇ!")
     if message.content.startswith("배룹아 허준상알려줘"):
         await message.channel.send("허준상 님은 카트라이더 고수 트위치 방송 하시는 분이에요! https://www.twitch.tv/eodud0925")
-    if message.content.startswith("배룹아 도움말" or "배룹아 명령어"):
+    if message.content.startswith("배룹아 도움말"):
         embed = discord.Embed(title="파이썬으로 작동됨", description="이 봇은 파이썬으로 작성되었습니다", color=0x00ff56)
         embed.set_author(name="배룹봇 도움말", url="https://discord.gg/nbVn9wb",
                              icon_url="https://tr.rbxcdn.com/f10b9a970a51b6bbc106d411f83a8845/150/150/AvatarHeadshot/Png")
@@ -38,10 +41,27 @@ async def on_message(message):
         for server in client.guilds:
             await message.channel.send(server.name)
     if message.content.startswith("b!초대"):
-        await  message.channel.send ("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
-
-        
+        await  message.channel.send("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
+    if message.content.startswith("배룹아 배워"):
+        flie = openpyxl.load_workbook("학습.xlsx")
+        sheet = file.active
+        learn = message.content.split(" ")
+        for i in range(1,51):
+            if sheet["A" + str(i)].value == "-":
+                sheet["A" + str(i)].value = learn[1]
+                sheet["B" + str(i)].value = learn[1]
+                await .message.channel.send("단어가 성공적으로 저장돼었습니다.")
+                break
+        file.save("학습.xlsx")
+    
+        if message.content.startswith("배룹아 배워"):
+        file = openpyxl.load_workbook("학습.xlsx")
+        sheet = file.active
+        memory = message.content.split(" ")
+        for i in range(1,51):
+            if sheet["A"+ str(i)].value == memory[1]:
+                await  message.channel.send(message.channel, sheet["B" + str(i)].value)
+                break
 
 access_token = os.environ["BOT_TOKEN"]
-client.run(access_token)
 client.run(access_token)
