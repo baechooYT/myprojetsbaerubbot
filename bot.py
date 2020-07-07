@@ -29,7 +29,7 @@ async def on_message(message):
         embed.set_thumbnail(url="https://tr.rbxcdn.com/f10b9a970a51b6bbc106d411f83a8845/150/150/AvatarHeadshot/Png")
         embed.add_field(name="챗봇 명령", value="크시와 비슷하게 대화를 할수 있습니다!", inline=False)
         embed.add_field(name="시간확인", value="배룹아 현재 시각을 예기하면 현재 시각을 예기 해줘요!", inline=False)
-        embed.add_field(name="준비중", value="#배룹이-추가-할것 에서 추가 할것을 얘기해주세요!", inline=False)
+        embed.add_field(name="b!sl", value="배룹봇이 소속돼어 있는 서버들을 예기합니다", inline=False)
         embed.add_field(name="준비중", value="#배룹이-추가-할것 에서 추가 할것을 얘기해주세요!", inline=False)
         embed.set_footer(text="이것은 pyThon과 pyCharm으로 작성되었습니다")
         await  message.channel.send (embed=embed)
@@ -37,7 +37,7 @@ async def on_message(message):
         clockhour = datetime.datetime.today().hour
         clockminute = datetime.datetime.today().minute
         await message.channel.send("현재시각은 " + str(clockhour) + "시 " + str(clockminute) + "분 입니다!")
-    if message.content.startswith("배룹아 서버리스트"):
+    if message.content.startswith("b!sl"):
         for server in client.guilds:
             await message.channel.send(server.name)
 
