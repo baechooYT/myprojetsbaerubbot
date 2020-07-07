@@ -43,7 +43,7 @@ async def on_message(message):
     if message.content.startswith("b!초대"):
         await  message.channel.send("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
     if message.content.startswith("배룹아 배워"):
-        flie = openpyxl.load_workbook("학습.xlsx")
+        file = openpyxl.load_workbook("학습.xlsx")
         sheet = file.active
         learn = message.content.split(" ")
         for i in range(1,51):
