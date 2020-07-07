@@ -50,18 +50,18 @@ async def on_message(message):
             if sheet["A" + str(i)].value == "-":
                 sheet["A" + str(i)].value = learn[1]
                 sheet["B" + str(i)].value = learn[2]
-                await .message.channel.send("단어가 성공적으로 저장돼었습니다.")
+                await message.channel.send("단어가 성공적으로 저장돼었습니다.")
                 break
         file.save("학습.xlsx")
     
-        if message.content.startswith("배룹아 배워"):
-        file = openpyxl.load_workbook("학습.xlsx")
-        sheet = file.active
-        memory = message.content.split(" ")
-        for i in range(1,51):
-            if sheet["A"+ str(i)].value == memory[1]:
-                await  message.channel.send(message.channel, sheet["B" + str(i)].value)
-                break
+        if message.content.startswith("배룹아"):
+            file = openpyxl.load_workbook("학습.xlsx")
+            sheet = file.active
+            memory = message.content.split(" ")
+            for i in range(1,51):
+                if sheet["A"+ str(i)].value == memory[1]:
+                    await  message.channel.send(message.channel, sheet["B" + str(i)].value)
+                    break
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
