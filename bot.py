@@ -11,6 +11,7 @@ async def on_ready():
     print("작동중")
     game = discord.Game("'배룹아 도움말' 으로 도움말 확인하기")
     await  client.change_presence(status=discord.Status.online, activity=game)
+    client = commands.Bot(command_prefix = 'b!') 
 
 
 @client.event
@@ -39,6 +40,7 @@ async def on_message(message):
             await message.channel.send(server.name)
     if message.content.startswith("b!초대"):
         await  message.channel.send ("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
+
         
 
 access_token = os.environ["BOT_TOKEN"]
