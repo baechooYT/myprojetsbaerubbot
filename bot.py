@@ -61,5 +61,5 @@ async def on_message(message):
         #        if sheet["A"+ str(i)].value == memory[1]:
         #           await  message.channel.send(message.channel, sheet["B" + str(i)].value)
         #           break
-
-client.run('NzE1MzcwNjMxNTI4NTc5MTUy.XwR0cw.jH9URo8QYbsHWxl8QHiYQPL7h8E')
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
