@@ -42,13 +42,6 @@ async def on_message(message):
             await message.channel.send(server.name)
     if message.content.startswith("b!초대"):
         await  message.channel.send ("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
-
-
-
-@app.command(name="청소", pass_context=True)
-async def _clear(ctx, *, amount=99):
-    await ctx.channel.purge(limit=amount)
-
         
 
 access_token = os.environ["BOT_TOKEN"]
