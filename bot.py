@@ -1,6 +1,9 @@
 import discord
 import datetime
 import os
+from discord.ext import commands
+from discord.ext.commands import Bot
+
 
 client = discord.Client()
 
@@ -35,11 +38,8 @@ async def on_message(message):
         clockminute = datetime.datetime.today().minute
         await message.channel.send("현재시각은 " + str(clockhour) + "시 " + str(clockminute) + "분 입니다!")
     if message.content.startswith("배룹아 서버리스트"):
-        list = []
-        for server in client.servers:
-            list.append(server.name)
-        await client.send_message(message.channel, "\n".join(list))
-
+        for server in Bot.servers:
+            await message.channel.send(server.name)
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
