@@ -5,7 +5,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 
 
-client = discord.Client()
 
 @client.event
 async def on_ready():
@@ -46,9 +45,9 @@ async def on_message(message):
 
 
 
-@client.command()
-async def 청소(ctx, amount):
-	await ctx.client.purge(limit = amount)
+@app.command(name="청소", pass_context=True)
+async def _clear(ctx, *, amount=99):
+    await ctx.channel.purge(limit=amount)
 
         
 
