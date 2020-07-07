@@ -30,7 +30,7 @@ async def on_message(message):
         embed.add_field(name="챗봇 명령", value="크시와 비슷하게 대화를 할수 있습니다!", inline=False)
         embed.add_field(name="시간확인", value="배룹아 현재 시각을 예기하면 현재 시각을 예기 해줘요!", inline=False)
         embed.add_field(name="b!sl", value="배룹봇이 소속돼어 있는 서버들을 예기합니다", inline=False)
-        embed.add_field(name="준비중", value="#배룹이-추가-할것 에서 추가 할것을 얘기해주세요!", inline=False)
+        embed.add_field(name="b!초대", value="배룹봇 초대하기", inline=False)
         embed.set_footer(text="이것은 pyThon과 pyCharm으로 작성되었습니다")
         await  message.channel.send (embed=embed)
     if message.content.startswith("배룹아 현재 시각"):
@@ -40,6 +40,9 @@ async def on_message(message):
     if message.content.startswith("b!sl"):
         for server in client.guilds:
             await message.channel.send(server.name)
+    if message.content.startswith("b!초대"):
+        await  message.channel.send ("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
+        
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
