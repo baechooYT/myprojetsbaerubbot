@@ -2,7 +2,7 @@ import discord
 import datetime
 import os
 
-
+client = discord.Client()
 
 @client.event
 async def on_ready():
@@ -11,7 +11,6 @@ async def on_ready():
     print("작동중")
     game = discord.Game("'배룹아 도움말' 으로 도움말 확인하기")
     await  client.change_presence(status=discord.Status.online, activity=game)
-    client = commands.Bot(command_prefix = 'b!') 
 
 
 @client.event
@@ -44,4 +43,5 @@ async def on_message(message):
         
 
 access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
 client.run(access_token)
