@@ -34,8 +34,11 @@ async def on_message(message):
         clockhour = datetime.datetime.today().hour
         clockminute = datetime.datetime.today().minute
         await message.channel.send("현재시각은 " + str(clockhour) + "시 " + str(clockminute) + "분 입니다!")
-    if message.content.startswith("b!sl")
-        await message.channel.send("준비중")
+    if message.content.startswith("배룹아 서버리스트")
+        list = []
+        for server in client.servers:
+            list.append(server.name)
+        await client.send_message(message.channel, "\n".join(list))
 
 
 access_token = os.environ["BOT_TOKEN"]
