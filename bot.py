@@ -34,7 +34,7 @@ async def on_message(message):
         clockhour = datetime.datetime.today().hour
         clockminute = datetime.datetime.today().minute
         await message.channel.send("현재시각은 " + str(clockhour) + "시 " + str(clockminute) + "분 입니다!")
-    if message.content.startswith("배룹아 서버리스트")
+    if message.content.startswith("배룹아 서버리스트"):
         list = []
         for server in client.servers:
             list.append(server.name)
