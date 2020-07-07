@@ -41,7 +41,25 @@ async def on_message(message):
     if message.content.startswith("b!초대"):
         await  message.channel.send("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
     if message.content.startswith("배룹아 배워"):
-        await message.channel.send("지금은 학습기능을 사용할수없습니다.")
+        await  message.channel.send("지금은 오류나 버그때문에 작동하지않는 것입니다")
+        #file = openpyxl.load_workbook("학습.xlsx")
+        #sheet = file.active
+        #learn = message.content.split(" ")
+        #for i in range(1,51):
+        #    if sheet["A" + str(i)].value == "-" or sheet ["A" + str(i)].value == learn[1]:
+        #        sheet["A" + str(i)].value = learn[1]
+        #        sheet["B" + str(i)].value = learn[2]
+        #        await message.channel.send("단어가 성공적으로 저장돼었습니다.")
+        #        break
+        #file.save("학습.xlsx")
+    
+        #if message.content.startswith("배룹아"):
+        #    file = openpyxl.load_workbook("학습.xlsx")
+        #    sheet = file.active
+        #    memory = message.content.split(" ")
+        #    for i in range(1,51):
+        #        if sheet["A"+ str(i)].value == memory[1]:
+        #           await  message.channel.send(message.channel, sheet["B" + str(i)].value)
+        #           break
 
-access_token = os.environ["BOT_TOKEN"]
-client.run(access_token)
+client.run('NzE1MzcwNjMxNTI4NTc5MTUy.XwR0cw.jH9URo8QYbsHWxl8QHiYQPL7h8E')
