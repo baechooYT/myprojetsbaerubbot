@@ -18,8 +18,10 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith("배룹아 안녕"):
         await message.channel.send("ㅎㅇ!")
+        print("성공적으로 메시지가 보내짐")
     if message.content.startswith("배룹아 허준상알려줘"):
         await message.channel.send("허준상 님은 카트라이더 고수 트위치 방송 하시는 분이에요! https://www.twitch.tv/eodud0925")
+        print("성공적으로 메시지가 보내짐")
     if message.content.startswith("배룹아 도움말"):
         embed = discord.Embed(title="파이썬으로 작동됨", description="이 봇은 파이썬으로 작성되었습니다", color=0x00ff56)
         embed.set_author(name="배룹봇 도움말", url="https://discord.gg/nbVn9wb",
@@ -31,17 +33,21 @@ async def on_message(message):
         embed.add_field(name="b!초대", value="배룹봇 초대하기", inline=False)
         embed.set_footer(text="이것은 pyThon과 pyCharm으로 작성되었습니다")
         await  message.channel.send (embed=embed)
+        print("성공적으로 임배드가 보내짐")
     if message.content.startswith("배룹아 현재 시각"):
         clockhour = datetime.datetime.today().hour
         clockminute = datetime.datetime.today().minute
         await message.channel.send("현재시각은 " + str(clockhour) + "시 " + str(clockminute) + "분 입니다!")
+        print("성공적으로 메시지가 보내짐")
     if message.content.startswith("b!sl"):
         for server in client.guilds:
             await message.channel.send(server.name)
+            print("성공적으로 메시지가 보내짐")
     if message.content.startswith("b!초대"):
         await  message.channel.send("배룹봇 초대하기 : https://bit.ly/2VTcNs1")
     if message.content.startswith("배룹아 배워"):
         await  message.channel.send("지금은 오류나 버그때문에 작동하지않는 것입니다")
+        print("성공적으로 메시지가 보내짐")
         #file = openpyxl.load_workbook("학습.xlsx")
         #sheet = file.active
         #learn = message.content.split(" ")
@@ -61,5 +67,6 @@ async def on_message(message):
         #        if sheet["A"+ str(i)].value == memory[1]:
         #           await  message.channel.send(message.channel, sheet["B" + str(i)].value)
         #           break
+        
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
