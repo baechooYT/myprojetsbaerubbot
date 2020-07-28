@@ -7,8 +7,6 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    bot_id = client.user.id
-    print(str(bot_id) + "으로 연결됨")
     print("작동중")
     game = discord.Game("'배룹아 도움말' 으로 도움말 확인하기")
     await  client.change_presence(status=discord.Status.online, activity=game)
